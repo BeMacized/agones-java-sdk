@@ -22,12 +22,30 @@ Add dependency
 <dependencies>
     ...
     <dependency>
-	    <groupId>com.github.BeMacized</groupId>
-	    <artifactId>agones-java-sdk</artifactId>
-	    <version>Tag</version>
-	</dependency>
+        <groupId>com.github.BeMacized</groupId>
+        <artifactId>agones-java-sdk</artifactId>
+        <version>master-SNAPSHOT</version>
+    </dependency>
 
 </dependencies>
+```
+
+### Gradle
+
+Add repository
+```groovy
+repositories {
+    ...
+    maven { url 'https://jitpack.io' }
+}
+```
+
+Add dependency
+```groovy
+dependencies {
+    ...
+    implementation 'com.github.BeMacized:agones-java-sdk:master-SNAPSHOT'
+}
 ```
 
 ## Usage
