@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group 'net.bemacized'
+version '1.0.0'
+
+sourceCompatibility = 1.8
+
+configurations {
+    shade
+    compile.extendsFrom shade
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    shade 'com.google.http-client:google-http-client:1.31.0'
+    shade 'com.google.http-client:google-http-client-jackson2:1.31.0'
+}
+
+jar {
+    configurations.shade.each { dep ->
+        from(project.zipTree(dep)) {
+            exclude 'META-INF', 'META-INF/**'
+        }
+    }
+}
